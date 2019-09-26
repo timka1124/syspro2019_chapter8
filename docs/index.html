@@ -1,4 +1,4 @@
-<!doctype html>
+pe html>
 <html lang="ja">
     <head>
         <meta charset="utf-8">
@@ -7,6 +7,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>     
         <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
         <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     </head>
     <body>
@@ -22,7 +23,18 @@
         </div>
         <script>
             // TODO0 ここに設定情報を貼り付ける  
-            
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyCfIpQ7n7Dlg2FrDpr3IuwmUAb62oxfCCk",
+                authDomain: "s16134-syspro8.firebaseapp.com",
+                databaseURL: "https://s16134-syspro8.firebaseio.com",
+                projectId: "s16134-syspro8",
+                storageBucket: "s16134-syspro8.appspot.com",
+                messagingSenderId: "523283763604",
+                appId: "1:523283763604:web:3de6c7bfd84573dea63f81"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
             // データベースの参照を準備
             var ledRef = firebase.firestore().collection('led')
         
@@ -30,11 +42,20 @@
             
             $('#led-on').click(function() {
 		    // {led: "ON"}を送信
+                ledRef.add({
+                led:"ON"
+		        });
             });
             $('#led-off').click(function() {
 		    // {led: "OFF"}を送信
+                ledRef.add({
+                led:"OFF"
+		        });
             });
 
         </script>
     </body>
 </html>
+
+About
+
